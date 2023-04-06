@@ -1,8 +1,9 @@
-body{
+body {
     background-color: rgb(43, 43, 43);
     color: white;
 }
-.res{
+
+.res {
     display: block;
     background-color: azure;
     margin: 40px;
@@ -11,7 +12,8 @@ body{
     font-size: 20px;
     height: 200px;
 }
-.inp{
+
+.inp {
     display: block;
     background-color: azure;
     margin: 40px;
@@ -19,11 +21,17 @@ body{
     width: 90%;
     height: 40px;
 }
-p{
+
+p {
     font-size: 20px;
     margin-left: 40px;
 }
-button{
+
+button {
     font-size: 20px;
     margin-left: 40px;
+}
+
+#linkLink {
+    color:blue;
 }
