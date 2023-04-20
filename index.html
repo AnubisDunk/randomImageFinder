@@ -5,20 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ImgurImage</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div id="wrapper">
+        <header>
+            <h1>Imgur image</h1>
+        </header>
         <form id="linkCreate">
-            <p>https:// <span id="linkBase"></span></p>
-            <input type="text" id="linkInput" placeholder="imgur" id="" required>
+            <div id="top">
+                <p>https://imgur.com/xxxxxxx.</p>
+                <select name="" id="ext">
+                    <option value="png">png</option>
+                    <option value="jpg">jpg</option>
+                    <option value="jpeg">jpeg</option>
+                    <option value="gif">gif</option>
+                </select>
+            </div>
             <input type="submit" value="enter">
         </form>
-
         <p id="info">-/-</p>
-        <hr>
         <div id="content">
 
         </div>
