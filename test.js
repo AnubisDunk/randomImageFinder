@@ -16,31 +16,33 @@ function updateValue(e) {
     linkBase.textContent = checkRand(linkConstruct);
 }
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
     e.preventDefault();
-
     for (i = 0; i < 1000; i++) {
-        searchImg(linkInput.value);
+        await searchImg(linkInput.value);
         all++;
     }
+    console.log("finished");
 }
-async function searchImg(ext) {
-    newLink = `https://imgur.com/${randomImage(7)}.${ext}`
-    const img = document.createElement("img")
-    img.src = newLink;
-    img.onload = await function () {
-        console.log(img.naturalHeight);
-        info.textContent = `${counter}/${all}`;
-        if (img.naturalHeight != 81) {
-            img.width = 100;
-            img.alt = img.src;
-            img.addEventListener('click', (e) => {
-                window.open(e.currentTarget.src);
-            })
-            div.appendChild(img);
-            counter++;
-        }
-    }
+function searchImg(ext) {
+    return new Promise((res, rej) => {
+        src = `https://imgur.com/${randomImage(7)}.${ext}`
+        const img = document.createElement("img");
+        img.addEventListener('load', () => {
+            console.log('Loading')
+            info.textContent = `${counter}/${all}`;
+            if (img.height != 81 && img.width != 161) {
+                img.width = 100;
+                img.addEventListener('click', (e) => {
+                    window.open(e.currentTarget.src);
+                })
+                div.appendChild(img);
+                counter++;
+            }
+        });
+        img.setAttribute('src', src);
+        res();
+    })
 }
 
 function randomImage(length) {
